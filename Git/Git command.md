@@ -31,5 +31,8 @@
 ### git push origin branch_name(or master)
 * branch나 master에 push
 
+### git merge branch_name
+* 브랜치에서 변경된 내용을 master로 추가
+
 ### pull requests 확인해서 merge 작업 진행
 * 충돌나면 해결야지만 merge 가능
