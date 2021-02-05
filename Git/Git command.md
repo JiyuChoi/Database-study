@@ -17,7 +17,7 @@
 
 ### git branch
 * 현재 master에 있는지 어디 branch에 있는지 확인
-* git branch branch_name은 branch 생성
+* git branch -b branch_name 명령어는 branch 생성
 
 ### git checkout branch_name (or master)
 * branch나 master 선택 (들어감)
