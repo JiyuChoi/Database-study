@@ -41,9 +41,48 @@ let study = ["html", "css", "javascript"];
 study.pop() //"javascript"
 study //(2)["html", "css"]
 ```
-* shift(): 배열의 첫 요소르 반환
+* shift(): 배열의 첫 요소를 반환
 ```js
 let study = ["html", "css"];
 study.pop() //"html"
 study //(1)["css"]
+```
+
+### 📌 splice()
+* 원하는 위치의 요소를 삭제하거나 추가하는 함수
+```js
+let numbers = [0, 1, 2, 3, 4, 5];
+// index 2인 요소부터 끝까지 삭제
+numbers.splice(2)
+//(4) [2, 3, 4, 5] 
+numbers
+//(2) [0, 1]
+
+let study = ["html", "css", "web", "jquery"]
+// index 2인 요소부터 1개 삭제
+study.splice(2, 1)
+//["web"]
+
+// index 2인 요소부터 1개 삭제하고 "js" 삽입
+study.splice(2, 1, "js")
+//["jquery"]
+study
+//(3) ["html", "css", "js"]
+```
+
+### 📌 slice()
+* 원하는 위치의 요소를 추출하는 함수
+```js
+let colors = ["red", "green", "blue", "white", "black"];
+colors.slice(2)
+// (3)["blue", "white", "black"]
+colors
+//(5) ["red", "green", "blue", "white", "black"] (원래 배열은 변경되지 않음)
+
+let colors2 = colors.slice(1,4);
+colors2
+//(3) ["green", "blue", "white"]
+colors
+//(5) ["red", "green", "blue", "white", "black"] (원래 배열은 변경되지 않음)
+
 ```
