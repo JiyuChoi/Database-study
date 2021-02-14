@@ -72,6 +72,7 @@ study
 
 ### 📌 slice()
 * 원하는 위치의 요소를 추출하는 함수
+* 원래 배열은 변경되지 않음 
 ```js
 let colors = ["red", "green", "blue", "white", "black"];
 colors.slice(2)
