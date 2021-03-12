@@ -1,13 +1,13 @@
 'use strict';
 
-// JavaScript is synchronous.
-// Execute the code block by orger after hoisting.
-// hoisting: var, function declaration
+// JavaScript is synchronous. (코드가 하나하나씩 수행됨)
+// Execute the code block in order after hoisting.
+// hoisting: var, function declaration (선언이 제일 위로 올라가는 것)
 console.log('1');
 setTimeout(() => console.log('2'), 1000);
 console.log('3');
 
-// Synchronous callback
+// Synchronous callback (즉각적 수행)
 function printImmediately(print) {
     print();
 }
@@ -19,7 +19,7 @@ function printWithDelay(print, timeout) {
 }
 printWithDelay(() => console.log('async callback'), 2000);
 
-// Callback Hell example
+// Callback Hello Example
 class UserStorage {
     loginUser(id, password, onSuccess, onError) {
         setTimeout(() => {
@@ -39,32 +39,30 @@ class UserStorage {
             if (user === 'ellie') {
                 onSuccess({ name: 'ellie', role: 'admin' });
             } else {
-                onError(new Error('no access'));
+                onError(new Error('not found'));
             }
         }, 1000);
     }
 }
 
-const userStorage = new UserStorage();
+const UserStorage = new UserStorage();
 const id = prompt('enter your id');
-const password = prompt('enter your passrod');
-userStorage.loginUser(
+const password = prompt('enter your password');
+UserStorage.loginUser(
     id,
     password,
     user => {
-        userStorage.getRoles(
+        UserStorage.getRoles(
             user,
             userWithRole => {
                 alert(
                     `Hello ${userWithRole.name}, you have a ${userWithRole.role} role`
                 );
-            },
-            error => {
-                console.log(error);
+            }, error => {
+                console.log(error)
             }
         );
-    },
-    error => {
-        console.log(error);
+    }, error => {
+        console.log(error)
     }
 );
