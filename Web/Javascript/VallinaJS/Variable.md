@@ -17,6 +17,5 @@ a = 101; //error 발생
 const COLOR_RED = "#F00";
 const pageLoadTime = /* 웹 페이지를 로드하는데 걸린 시간 */
 ```
-
-
+#### 모든 것에 const를 사용하고 만약 variable 값을 overwrite 해야하는 상황이 일어난다면 let을 사용!
 
