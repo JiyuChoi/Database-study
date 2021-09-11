@@ -23,6 +23,6 @@ const amIPretty = new Promise((resolve, reject) => {
 amIPretty
     .then(result => console.log(result)) //resolve
     .catch(error => console.log(error)); //reject
-
+// 두개가 각기 나열돼있음 (순서대로 진행하는 것이 아님)
 // then이 실행되면 catch 실행 X
 // catch가 실행되면 then 실행 X
