@@ -10,6 +10,7 @@ const amIPretty = new Promise((resolve, reject) => {
     resolve("Yes you are!");
 });
 
+// function으로 불러오기
 const thenFn = value => console.log(value);
 
 amIPretty.then(thenFn);
