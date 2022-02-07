@@ -74,9 +74,7 @@ func();
 
 내부함수에서는 외부함수의 변수에 접근 가능하지만, 외부함수에서는 내부함수의 변수에 접근 불가능
 
-![Untitled](%E1%84%89%E1%85%B3%E1%84%8F%E1%85%A9%E1%84%91%E1%85%B3%E1%84%8B%E1%85%AA%20%E1%84%8F%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A5%2068215bd7fd9047b8939987545b573fc0/Untitled.png)
-
-```jsx
+```js
 var name = 'scope';
 function outer() {
 		console.log('외부함수', name);
@@ -134,7 +132,7 @@ console.log(friend); // 어떻게 출력될까?
 
 **Q. 콘솔에 출력되는 결과는?**
 
-```jsx
+```js
 function foo() {
   x = 1;
   let y = 2;
@@ -153,7 +151,7 @@ console.log(y);
 
     → 이를 방지하기 위해 **use strict** 사용
 
-```jsx
+```js
 function showAge() {
 		age = 27;
 		console.log(age);
@@ -171,7 +169,7 @@ console.log(age);
 
 (함수를 호출하는 시점에 결정 → 동적 스코프)
 
-```jsx
+```js
 // 예제 1
 var a = 1;
 var func = function () {
@@ -184,7 +182,7 @@ var func2 = function () {
 func2();
 ```
 
-```jsx
+```js
 // 예제 2
 var a = 1;
 var func2 = function () {
@@ -210,7 +208,7 @@ func2();
 2. 내부함수는 외부함수의 실행환경에서 실행된다.
 3. 내부함수에서 사용되는 변수 x는 외부함수의 변수 스코프에 있다.
 
-```jsx
+```js
 function outer() {
   var name = `closure`;
   function inner() {
@@ -222,7 +220,7 @@ outer();
 // console> closure
 ```
 
-```jsx
+```js
 var name = `Warning`;
 function outer() {
   var name = `closure`;
@@ -245,7 +243,7 @@ callFunc 호출에 의해 name이라는 값이 console에 Warning이 아니라 c
 
 ### 클로저 활용
 
-```jsx
+```js
 // counter는 outer 함수
 // changeCount는 inner함수
 // 객체를 리턴하고 있고 객체 안에는 increase, decrease, show와 같은 inner함수들을 저장
