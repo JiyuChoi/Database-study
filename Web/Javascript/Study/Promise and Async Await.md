@@ -1,4 +1,4 @@
-# Promise 와 Async/Await
+# Promise 와 Async/Await (보충)
 
 ## 비동기 처리의 예
 
@@ -53,6 +53,7 @@ const promise = new Promise(function(resolve, reject) {
 	}, 1000);
 });
 
+// promise가 끝났을 때, 값을 돌려달라고 함!
 promise
 .then(function() {
 	console.log('B');
@@ -161,7 +162,13 @@ promise.then(
 ```
 
 ```jsx
-
+fetch("http://127.0.0.1:8080/")
+	.then(response => {
+	console.log(response.json()
+	return response.json();
+}) // reponse: promise를 return 하는 함수를 가짐
+	.then(potato => console.log(potato))
+	.catch(e => console.log(`X ${e}`));
 ```
 
 # async / await
