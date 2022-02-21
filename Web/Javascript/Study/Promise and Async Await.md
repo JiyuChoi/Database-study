@@ -1,4 +1,4 @@
-# Promise 와 Async/Await (보충)
+# Promise 와 Async/Await
 
 ## 비동기 처리의 예
 
@@ -161,16 +161,6 @@ promise.then(
 );
 ```
 
-```jsx
-fetch("http://127.0.0.1:8080/")
-	.then(response => {
-	console.log(response.json()
-	return response.json();
-}) // reponse: promise를 return 하는 함수를 가짐
-	.then(potato => console.log(potato))
-	.catch(e => console.log(`X ${e}`));
-```
-
 # async / await
 
 기존의 `callback` 과 `Promise` 의 단점을 해소하고자 만들어졌다.
@@ -258,3 +248,71 @@ const getMovies = async () => {
     - `Promise`의 `.then()` 지옥의 가능성
     - 코드가 길어지면 길어질수록, `async/await` 를 활용한 코드가 가독성이 좋다.
     - `async/await` 은 비동기 코드가 동기 코드처럼 읽히게 해준다. 코드 흐름을 이해 하기 쉽다.
+    
+
+## 보충
+
+```jsx
+fetch("https://yts.mx/api/v2/list_movies.json")
+	.then(response => {
+	console.log(response);
+	return response.json();
+}) // reponse: promise를 return 하는 함수를 가짐
+	.then(json => console.log(json))
+	.catch(e => console.log(`X ${e}`));
+```
+
+```jsx
+//Promise
+const getMoviesPromise = () => {
+fetch("https://yts.mx/api/v2/list_movies.json")
+	.then(response => {
+	console.log(response);
+	return response.json();
+}) // reponse: promise를 return 하는 함수를 가짐
+	.then(json => console.log(json))
+	.catch(e => console.log(`X ${e}`));
+};
+
+//async function getMovies() {}
+const getMoviesAsync = async() => {
+	const response = await fetch("https://yts.mx/api/v2/list_movies.json")
+	// await는 Promise가 끝나길 기다림 (reslove 값을 넣어줌)
+	// console.log(response);
+	const json = await reponse.json();
+	console.log(json);
+};
+
+getMoviesAsync();
+```
+
+```jsx
+//Promise
+const getMoviesPromise = () => {
+fetch("https://yts.mx/api/v2/list_movies.json")
+	.then(response => {
+	console.log(response);
+	return response.json();
+}) // reponse: promise를 return 하는 함수를 가짐
+	.then(json => console.log(json))
+	.catch(e => console.log(`X ${e}`));
+};
+
+//async function getMovies() {}
+const getMoviesAsync = async() => {
+	try {
+		const response = await fetch("https://yts.mx/api/v2/listmovies.json")
+		const json = await reponse.json();
+		console.log(json);
+		throw Error("Im hungry"); // await 에러, throw 에러 모두 catch에서 잡는다
+	}
+	catch (e) {
+		console.log(`x ${e}`);
+	}	
+	finally {
+	  console.log("We are done!");
+	}
+};
+
+getMoviesAsync();
+```
