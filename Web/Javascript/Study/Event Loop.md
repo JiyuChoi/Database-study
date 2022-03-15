@@ -24,8 +24,7 @@
 **→ Event Loop와 Queue**
 
 ### 자바스크립트 엔진 영역
-
-![Untitled](Event%20Loop%2016e05/Untitled.png)
+![Untitled](https://user-images.githubusercontent.com/75539452/158292902-cae4fa5b-0265-4e0e-8561-aa442ee629ac.png)
 
 - Call Stack
 - Task Queue (Event Queue)
@@ -167,43 +166,44 @@ setTimeout
 ```
 
 이 코드는 다음과 같이 처리된다.
-
-![Untitled](Event%20Loop%2016e05/Untitled%201.png)
+![Untitled 1](https://user-images.githubusercontent.com/75539452/158292944-a10f85f0-d780-40c0-b540-d719d70c911e.png)
 
 1. Script 실행 작업이 stack에 등록
 2. console.log(’script start’)가 처리
 3. setTimeout 작업이 stack에 등록되고, Web API에게 setTimeout을 요청
 이때 setTimeout의 callback 함수를 함께 전달, 요청 이후 stack에 있는 setTimeout 작업은 제거
 
-![Untitled](Event%20Loop%2016e05/Untitled%202.png)
+![Untitled 2](https://user-images.githubusercontent.com/75539452/158292958-2eed0d31-0a40-4b4b-98b6-4d5effc7e3ef.png)
 
 1. Web API는 setTimeout 작업(0초 후)이 완료되면 setTimeout callback 함수를 task queue에 등록
 2. Promise 작업이 stack에 등록되고, Web API에게 Promise 작업을 요청
 이때 Promise.then의 callback 함수를 함께 전달, 요청 이후 stack에 있는 Promise 작업은 제거
 Web API는 Promise 작업이 완료되면 Promise.then의 callback 함수를 microtask queue에 등록
 
-![Untitled](Event%20Loop%2016e05/Untitled%203.png)
+![Untitled 3](https://user-images.githubusercontent.com/75539452/158292981-44874a91-2c66-4de9-9fc4-33d739704d32.png)
 
 1. requestAnimation 작업이 stack에 등록되고, Web API에게 requestAnimation을 요청
 이때 requestAnimation의 callback 함수를 함께 전달, 요청 이후 stack에 있는 requestAnimation 작업은 제거
 2. Web API는 requestAnimation의 callback 함수를 animation frame에 등록
 
-![Untitled](Event%20Loop%2016e05/Untitled%204.png)
+![Untitled 4](https://user-images.githubusercontent.com/75539452/158293000-4f300ab2-567e-4e38-89b3-51f6a08af16b.png)
 
 1. console.log('script end')가 처리
 2. 'script 실행 작업'이 완료되어 stack에서 제거
 3. stack이 비워있어서 microtask queue에 등록된 Promise.then 의 callback 함수를 stack에 등록
 
-![Untitled](Event%20Loop%2016e05/Untitled%205.png)
 
-![Untitled](Event%20Loop%2016e05/Untitled%206.png)
+![Untitled 5](https://user-images.githubusercontent.com/75539452/158293034-efa2dc35-9f80-483c-b56e-9976c4709712.png)
+
+![Untitled 6](https://user-images.githubusercontent.com/75539452/158293044-f82e5c2a-7c58-4b08-af41-bec796e8fb10.png)
 
 1. 첫번째 Promise.then의 callback 함수가 실행되어 내부의 console.log('promise1')가 처리
 2. 첫번째 Promise.then 다음에 Promise.then이 있다면, 다음 Promise.then의 callback 함수를 microtask queue에 등록
 3. stack 에서 첫번째 Promise.then의 callback 함수를 제거하고 microtask queue에서 첫번째 Promise.then의 callback 함수를 제거
 4. 두번째 Promise.then의 callback 함수를 stack에 등록
 
-![Untitled](Event%20Loop%2016e05/Untitled%207.png)
+
+![Untitled 7](https://user-images.githubusercontent.com/75539452/158293066-b61235bc-1da4-467f-802d-fd95b32d9453.png)
 
 ![https://sculove.github.io/static/5f5b3b75ac7856148c66e1113321ad66/a6d36/promise-step3.png](https://sculove.github.io/static/5f5b3b75ac7856148c66e1113321ad66/a6d36/promise-step3.png)
 
@@ -211,9 +211,10 @@ Web API는 Promise 작업이 완료되면 Promise.then의 callback 함수를 mic
 2. stack 에서 두번째 Promise.then의 callback 함수를 제거
 3. microtask 작업이 완료되면 animation frame에 등록된 callback 함수를 꺼내 실행
 
-![Untitled](Event%20Loop%2016e05/Untitled%208.png)
+![Untitled 8](https://user-images.githubusercontent.com/75539452/158293084-14afc39f-a4ae-472c-8735-77b2db0964a7.png)
 
-![Untitled](Event%20Loop%2016e05/Untitled%209.png)
+![Untitled 9](https://user-images.githubusercontent.com/75539452/158293098-e0c9dacb-80e9-4f0f-9ca5-23efd7ebc201.png)
+
 
 1. 이후 브라우저는 랜더링 작업을 하여 UI를 업데이트
 2. stack과 microtask queue가 비워있어서 task queue에 등록된 callback 함수를 꺼내 stack에 등록
