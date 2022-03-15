@@ -4,7 +4,7 @@
 이벤트 루프를 기반으로 하는 싱글 스레드 Node.js
 > 
 
-# 자바스크립트 엔진
+## 자바스크립트 엔진
 
 ### 자바스크립트 엔진이란?
 
@@ -33,7 +33,7 @@
     추가적으로 Event Loop가 존재 (계속해서 Call Stack과 Queue 사이의 작업을 확인하고, Call Stack이 비워져있는 경우 작업을 dequeue해 Call Stack에 넣음)
     
 
-# Event Loop와 Queue
+## Event Loop와 Queue
 
 **Event Loop에서 Loop의 사전적인 의미는 '반복. 순환'**
 
@@ -50,7 +50,7 @@
 
 이렇게 **Event Loop와 Queue는 자바스크립트 엔진이 하나의 코드 조각을 하나씩 처리할 수 있도록 작업을 스케줄링**하는 동시에 이러한 이유로 우리는 자바스크립트에서 비동기 작업을 할수 있도록 함
 
-# Call Stack
+## Call Stack
 
 자바스크립트는 단 하나의 호출 스택을 사용
 
@@ -80,7 +80,7 @@ console.log(bar(1));
 4. foo 함수에서 a+b를 return하면서 종료되므로 stack에서 pop
 5. bar함수도 foo에서 받은 값을 return하면서 stack에서 pop
 
-# Task Queue
+## Task Queue
 
 처리해야하는 Task들을 임시저장하는 대기 큐가 존재 → Task Queue (Event Queue)
 
@@ -131,7 +131,7 @@ test1();
 5. 이후 test2와 test1이 pop되고 Call stack이 비게 됨
 6. event queue에서 이벤트를 가져와서 Call stack으로 넣음 (익명함수 실행)
 
-# 자바스크립트 처리 과정
+## 자바스크립트 처리 과정
 
 📌 해당 코드는 어떤 순으로 출력될까?
 
