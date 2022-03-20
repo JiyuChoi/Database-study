@@ -24,6 +24,7 @@
 **→ Event Loop와 Queue**
 
 <br/>
+
 ### 자바스크립트 엔진 영역
 ![Untitled](https://user-images.githubusercontent.com/75539452/158292902-cae4fa5b-0265-4e0e-8561-aa442ee629ac.png)
 
@@ -33,6 +34,7 @@
     
     추가적으로 Event Loop가 존재 (계속해서 Call Stack과 Queue 사이의 작업을 확인하고, Call Stack이 비워져있는 경우 작업을 dequeue해 Call Stack에 넣음)
     
+<br/>
 
 ## Event Loop와 Queue
 
@@ -50,6 +52,8 @@
 - 만약 microtask의 queue가 비어서 더 이상 처리할 작업이 없으면, 이때 task queue를 확인
 
 이렇게 **Event Loop와 Queue는 자바스크립트 엔진이 하나의 코드 조각을 하나씩 처리할 수 있도록 작업을 스케줄링**하는 동시에 이러한 이유로 우리는 자바스크립트에서 비동기 작업을 할수 있도록 함
+
+<br/>
 
 ## Call Stack
 
@@ -81,6 +85,8 @@ console.log(bar(1));
 4. foo 함수에서 a+b를 return하면서 종료되므로 stack에서 pop
 5. bar함수도 foo에서 받은 값을 return하면서 stack에서 pop
 
+<br/>
+
 ## Task Queue
 
 처리해야하는 Task들을 임시저장하는 대기 큐가 존재 → Task Queue (Event Queue)
@@ -102,6 +108,7 @@ console.log("second");
 - 자바스크립트에서 비동기로 호출되는 함수들은 Call stack에 쌓이지 않고, **Task Queue에 enqueue 됨**
 - **이벤트에 의해 실행되는 함수**(핸들러)들이 비동기로 실행
 - 자바스크립트 엔진이 아닌 **Web API** 영역에 따로 정의되어있는 함수도 비동기로 실행
+<br/>
 
 📌 해당코드는 어떤 순으로 출력될까?
 
@@ -131,6 +138,8 @@ test1();
 4. test3 함수가 호출되고 test3이 출력되면서 stack에서 pop 됨
 5. 이후 test2와 test1이 pop되고 Call stack이 비게 됨
 6. event queue에서 이벤트를 가져와서 Call stack으로 넣음 (익명함수 실행)
+
+<br/>
 
 ## 자바스크립트 처리 과정
 
@@ -229,6 +238,8 @@ Web API는 Promise 작업이 완료되면 Promise.then의 callback 함수를 mic
 > 참조
 [https://sculove.github.io/post/javascriptflow/](https://sculove.github.io/post/javascriptflow/)
 > 
+
+<br/>
 
 ## Event Loop 작동
 
